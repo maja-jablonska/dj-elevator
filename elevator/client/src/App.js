@@ -30,33 +30,33 @@ function App() {
     console.log("Adding phaser...");
   });
 
-  socket.on('wah', () => {
-    const autoWah = new Tone.AutoWah(50, 6, -30).toDestination();
+  socket.on('wah', (req) => {
+    const autoWah = new Tone.AutoWah(req).toDestination();
     //connect a player to the distortion
     player.connect(autoWah);
     console.log("Adding autowah...");
   });
 
-  socket.on('reverb', () => {
-    const reverb = new Tone.Reverb();
+  socket.on('reverb', (req) => {
+    const reverb = new Tone.Reverb(req.decay).toDestination();
     player.connect(reverb);
     console.log("Adding reverb...");
   });
 
-  socket.on('vibrato', () => {
-    const vibrato = new Tone.Vibrato();
+  socket.on('vibrato', (req) => {
+    const vibrato = new Tone.Vibrato(req).toDestination();
     player.connect(vibrato);
     console.log("Adding vibrato...");
   });
 
-  socket.on('tremolo', () => {
-    const tremolo = new Tone.Tremolo();
+  socket.on('tremolo', (req) => {
+    const tremolo = new Tone.Tremolo(req).toDestination();
     player.connect(tremolo);
     console.log("Adding tremolo...");
   });
 
-  socket.on('chorus', () => {
-    const chorus = new Tone.Chorus();
+  socket.on('chorus', (req) => {
+    const chorus = new Tone.Chorus(req).toDestination();
     player.connect(chorus);
     console.log("Adding chorus...");
   });
@@ -75,8 +75,8 @@ function App() {
     airhorn_player.start();
   });
 
-  socket.on('pingpong', () => {
-    const pingPong = new Tone.PingPongDelay("4n", 0.2).toDestination();
+  socket.on('pingpong', (req) => {
+    const pingPong = new Tone.PingPongDelay(req).toDestination();
     player.connect(pingPong);
   })
 

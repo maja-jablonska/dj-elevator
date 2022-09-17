@@ -48,27 +48,27 @@ app.post('/api/phaser', (req, res) => {
 });
 
 app.post('/api/wah', (req, res) => {
-  io.of('/').emit('wah');
+  io.of('/').emit('wah', req.body);
   res.send({ applied: 'wah' });
 });
 
 app.post('/api/reverb', (req, res) => {
-  io.of('/').emit('reverb');
+  io.of('/').emit('reverb', req.body);
   res.send({ applied: 'reverb' });
 });
 
 app.post('/api/tremolo', (req, res) => {
-  io.of('/').emit('tremolo');
+  io.of('/').emit('tremolo', req.body);
   res.send({ applied: 'tremolo' });
 });
 
 app.post('/api/chorus', (req, res) => {
-  io.of('/').emit('chorus');
+  io.of('/').emit('chorus', req.body);
   res.send({ applied: 'chorus' });
 });
 
 app.post('/api/vibrato', (req, res) => {
-  io.of('/').emit('vibrato');
+  io.of('/').emit('vibrato', req.body);
   res.send({ applied: 'vibrato' });
 });
 
@@ -88,7 +88,7 @@ app.post('/api/airhorn', (req, res) => {
 });
 
 app.post('/api/pingpong', (req, res) => {
-  io.of('/').emit('pingpong');
+  io.of('/').emit('pingpong', req.body);
   res.send({ applied: 'pingpong' });
 })
 
