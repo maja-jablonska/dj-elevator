@@ -17,12 +17,14 @@ function App() {
     console.log("Connected")
   });
   
-  socket.on('phaser', () => {
-    const phaser = new Tone.Phaser({
-      "frequency" : 15,
-      "octaves" : 5,
-      "baseFrequency" : 1000
-    }).toDestination();
+  socket.on('phaser', (req) => {
+    const phaser = new Tone.Phaser(req).toDestination();
+    console.log(req);
+    // const phaser = new Tone.Phaser({
+    //   "frequency" : 15,
+    //   "octaves" : 5,
+    //   "baseFrequency" : 1000
+    // }).toDestination();
     //connect a player to the distortion
     player.connect(phaser);
     console.log("Adding phaser...");
@@ -59,13 +61,13 @@ function App() {
     console.log("Adding chorus...");
   });
 
-  socket.on('slower', () => {
-    player.playbackRate = player.playbackRate - .05;
+  socket.on('slower', (req) => {
+    player.playbackRate = player.playbackRate - req.rate;
     console.log("Slowing the playback rate...")
   });
 
-  socket.on('faster', () => {
-    player.playbackRate = player.playbackRate + .05;
+  socket.on('faster', (req) => {
+    player.playbackRate = player.playbackRate + req.rate;
     console.log("Making the playback rate faster...")
   });
 

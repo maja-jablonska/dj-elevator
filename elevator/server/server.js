@@ -42,58 +42,54 @@ io.on('connection', (socket) => {
 });
 
 app.post('/api/phaser', (req, res) => {
-  io.of('/').emit('phaser');
-  res.send({ express: 'Hello From Express' });
+  console.log(req.body);
+  io.of('/').emit('phaser', req.body);
+  res.send({ applied: 'phaser' });
 });
 
 app.post('/api/wah', (req, res) => {
   io.of('/').emit('wah');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'wah' });
 });
 
 app.post('/api/reverb', (req, res) => {
   io.of('/').emit('reverb');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'reverb' });
 });
 
 app.post('/api/tremolo', (req, res) => {
   io.of('/').emit('tremolo');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'tremolo' });
 });
 
 app.post('/api/chorus', (req, res) => {
   io.of('/').emit('chorus');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'chorus' });
 });
 
 app.post('/api/vibrato', (req, res) => {
   io.of('/').emit('vibrato');
-  res.send({ express: 'Hello From Express' });
-});
-
-app.post('/api/trigger', (req, res) => {
-  io.of('/').emit('trigger');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'vibrato' });
 });
 
 app.post('/api/slower', (req, res) => {
-  io.of('/').emit('slower');
-  res.send({ express: 'Hello From Express' });
+  io.of('/').emit('slower', req.body);
+  res.send({ applied: 'slower' });
 });
 
 app.post('/api/faster', (req, res) => {
-  io.of('/').emit('faster');
-  res.send({ express: 'Hello From Express' });
+  io.of('/').emit('faster', req.body);
+  res.send({ applied: 'faster' });
 });
 
 app.post('/api/airhorn', (req, res) => {
   io.of('/').emit('airhorn');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'airhorn' });
 });
 
 app.post('/api/pingpong', (req, res) => {
   io.of('/').emit('pingpong');
-  res.send({ express: 'Hello From Express' });
+  res.send({ applied: 'pingpong' });
 })
 
 
