@@ -41,6 +41,7 @@ io.on('connection', (socket) => {
   socket.io = io;
 });
 
+// { "octaves": [3, 5]}
 app.post('/api/phaser', (req, res) => {
   console.log(req.body);
   io.of('/').emit('phaser', req.body);
@@ -52,6 +53,7 @@ app.post('/api/wah', (req, res) => {
   res.send({ applied: 'wah' });
 });
 
+// { "delay": [1, 10.]"}
 app.post('/api/reverb', (req, res) => {
   io.of('/').emit('reverb', req.body);
   res.send({ applied: 'reverb' });
@@ -72,16 +74,13 @@ app.post('/api/vibrato', (req, res) => {
   res.send({ applied: 'vibrato' });
 });
 
-app.post('/api/slower', (req, res) => {
-  io.of('/').emit('slower', req.body);
-  res.send({ applied: 'slower' });
+// { "pace": [-0.5, 0.5] }
+app.post('/api/pace', (req, res) => {
+  io.of('/').emit('pace', req.body);
+  res.send({ applied: 'pace' });
 });
 
-app.post('/api/faster', (req, res) => {
-  io.of('/').emit('faster', req.body);
-  res.send({ applied: 'faster' });
-});
-
+// no payload
 app.post('/api/airhorn', (req, res) => {
   io.of('/').emit('airhorn');
   res.send({ applied: 'airhorn' });

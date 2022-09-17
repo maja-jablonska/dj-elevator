@@ -11,6 +11,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+  .footer-left {
+    animation: slight-wobble infinite 2s alternate;
+  }
+  .footer-right {
+    animation: slight-wobble-right infinite 2s alternate;
+  }
 }
 
 .App-header {
@@ -28,6 +34,24 @@
   color: #61dafb;
 }
 
+.footer-left {
+  position:fixed;
+  left:0;
+  bottom:0;
+  margin:0;
+  padding:0;
+  width:30%;
+}
+
+.footer-right {
+  position:fixed;
+  right:0;
+  bottom:0;
+  margin:0;
+  padding:0;
+  width:30%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +59,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes slight-wobble {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes slight-wobble-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-10deg);
+  }
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+}
+
+
+.zoom:hover {
+  transform: scale(1.25);
 }

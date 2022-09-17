@@ -1,4 +1,6 @@
-import logo from './logo.svg';
+import logo from './button.png';
+import tribalLeft from './tribal-left.png';
+import tribalRight from './tribal-right.png';
 import './App.css';
 import io from 'socket.io-client';
 import * as Tone from 'tone';
@@ -19,13 +21,6 @@ function App() {
   
   socket.on('phaser', (req) => {
     const phaser = new Tone.Phaser(req).toDestination();
-    console.log(req);
-    // const phaser = new Tone.Phaser({
-    //   "frequency" : 15,
-    //   "octaves" : 5,
-    //   "baseFrequency" : 1000
-    // }).toDestination();
-    //connect a player to the distortion
     player.connect(phaser);
     console.log("Adding phaser...");
   });
@@ -61,14 +56,9 @@ function App() {
     console.log("Adding chorus...");
   });
 
-  socket.on('slower', (req) => {
-    player.playbackRate = player.playbackRate - req.rate;
-    console.log("Slowing the playback rate...")
-  });
-
-  socket.on('faster', (req) => {
+  socket.on('pace', (req) => {
     player.playbackRate = player.playbackRate + req.rate;
-    console.log("Making the playback rate faster...")
+    console.log("Changing the playback rate...")
   });
 
   socket.on('airhorn', () => {
@@ -83,26 +73,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {/* <button className="square" onClick={() => {Tone.context.resume().then(() => {
-          player.start();
-        })}}> */}
+        <div class="zoom">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
         <button className="square" onClick={() => { Tone.context.resume().then(() => {
               player.start();
             })}}>
           Play music
         </button>
+        <div class='footer-left'>
+          <img src={tribalLeft}/>
+        </div>
+        <div class='footer-right'>
+          <img src={tribalRight}/>
+        </div>
       </header>
     </div>
   );
