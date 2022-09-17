@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import io from 'socket.io-client';
 import * as Tone from 'tone';
-import * as mm from '@magenta/music';
 
 function App() {
   const ENDPOINT = 'http://localhost:5000/';
@@ -75,7 +74,6 @@ function App() {
   socket.on('pingpong', () => {
     const pingPong = new Tone.PingPongDelay("4n", 0.2).toDestination();
     player.connect(pingPong);
-    console.log(player);
   })
 
   return (
