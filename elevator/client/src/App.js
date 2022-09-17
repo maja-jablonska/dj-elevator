@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import * as Tone from 'tone';
 
 function App() {
-  const ENDPOINT = 'http://localhost:5000/';
+  const ENDPOINT = 'https://localhost:5000/';
 
   const socket = io.connect(ENDPOINT);
   const player = new Tone.Player({url: process.env.PUBLIC_URL + 'music_sample.mp3', loop: true}).toDestination();
