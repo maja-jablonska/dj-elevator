@@ -14,6 +14,7 @@ function App() {
   airhorn_player.volume.value = -6;
 
   socket.on('connect', () => {
+    console.log("Connected")
   });
   
   socket.on('phaser', () => {
