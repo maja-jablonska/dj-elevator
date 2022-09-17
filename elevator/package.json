@@ -5,14 +5,19 @@
         "client": "cd client && npm start",
         "server": "cd server && npm start",
         "dev": "concurrently --kill-others-on-fail \"npm run-script server\" \"npm run-script client\"",
-        "client-install"  : "cd client && npm install",
-        "server-install"  : "cd server && npm install",
+        "client-install": "cd client && npm install",
+        "server-install": "cd server && npm install",
         "install-all-deps": "concurrently \"npm run server-install\" \"npm run client-install\""
     },
     "dependencies": {
         "@magenta/music": "^1.23.1",
+        "assert": "^2.0.0",
         "body-parser": "^1.18.3",
-        "express": "^4.16.4"
+        "buffer": "^6.0.3",
+        "express": "^4.16.4",
+        "socket.io": "^4.5.2",
+        "socket.io-client": "^4.5.2",
+        "tone": "^14.7.77"
     },
     "devDependencies": {
         "concurrently": "^4.1.2",
