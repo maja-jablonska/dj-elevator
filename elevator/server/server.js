@@ -1,29 +1,29 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+const http = require('http');
 const https = require('https');
 const fs = require('fs');
 
-var key = fs.readFileSync(__dirname + '/certs/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/certs/selfsigned.crt');
+var key = fs.readFileSync(__dirname + '/../certs/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/../certs/selfsigned.crt');
 var options = {
   key: key,
   cert: cert
 };
 
 const app = express();
-const httpServer = https.createServer(options, app);
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const httpServer = http.createServer(options, app);
+const httpsServer = https.createServer(options, app);
+
 const io = new Server(httpServer, {
   cors: {
     origin: '*',
-    methods: ['GET', 'POST'],
   },
 });
 
@@ -98,5 +98,7 @@ app.post('/api/pingpong', (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
+const SPORT = process.env.SPORT || 5001;
 
 httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+httpsServer.listen(SPORT, () => console.log(`Listening on port ${SPORT}`));
