@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Elevator-Mobile</string>
+    <string name="title">LIFT ME UP</string>
+    <string name="profile_pic_name">Profile Picture</string>
+    <string name="about_text">"About "</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="hello_blank_fragment">What would you like to do during your elevator journey?</string>
+    <string name="pref_news">News</string>
+    <string name="pref_dj">Elevator Music DJ</string>
+    <string name="pref_geoguesser">GeoGuesser</string>
+    <string name="settings_save_button">Save preferences</string>
+    <string name="go_to_settings_button">Change preferences</string>
+    <string name="your_preferences">Your preferences:</string>
+    <string name="where_to_go">Where do you want to go?</string>
+    <string name="floor">floor</string>
+    <string name="go_button">Go!</string>
+    <string name="title_activity_go_to_elevator">GoToElevatorActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="wait">Wait a moment...</string>
+    <string name="go_to_lift">Go to elevator</string>
+    <string name="title_activity_mixer">MixerActivity</string>
+    <string name="logo">Logo</string>
+    <string name="bg">BG</string>
+    <string name="eta">Time left to your destination</string>
+    <string name="pace">Pace</string>
+    <string name="phaser">Phaser</string>
+    <string name="octaves">octaves</string>
+    <string name="decay">delay</string>
+    <string name="horn">horn</string>
+    <string name="reverb">reverb</string>
+    <string name="rate">rate</string>
+
+</resources>

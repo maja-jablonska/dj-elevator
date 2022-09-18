@@ -5,21 +5,14 @@ const cors = require('cors');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
-
-var key = fs.readFileSync(__dirname + '/../certs/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/../certs/selfsigned.crt');
-var options = {
-  key: key,
-  cert: cert
-};
+const { Console } = require('console');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const httpServer = http.createServer(options, app);
-const httpsServer = https.createServer(options, app);
+const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
@@ -96,4 +89,3 @@ const PORT = process.env.PORT || 5000;
 const SPORT = process.env.SPORT || 5001;
 
 httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-httpsServer.listen(SPORT, () => console.log(`Listening on port ${SPORT}`));
