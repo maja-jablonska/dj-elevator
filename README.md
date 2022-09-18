@@ -1,4 +1,5 @@
-# Elevator Music DJ
+![Elevator Music DJ](https://github.com/maja-jablonska/dj-elevator/blob/create_backend/elevator/logo.png)
+
 a HackZurich 2022 project
 
 ## Our motivation
